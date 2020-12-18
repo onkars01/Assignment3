@@ -1,0 +1,82 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h3 text-align:center>Burried Anchorage</h3>
+    <form (ngSubmit)="onSubmit()" #burriedanchorageForm="ngForm" autocomplete="off">
+      <div class="form-group">
+        <label for="task">Weight For Anchorage (kg)</label>
+        <input type="text" class="form-control" id="weightForAnchorage" name="weightForAnchorage" required
+          [(ngModel)]="model.weightForAnchorage" #weightForAnchorage="ngModel" />
+        <div [hidden]="weightForAnchorage.valid || weightForAnchorage.pristine" class="alert alert-danger">
+          Weight For Anchorage is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task">Depth Of Trench (mtr)</label>
+        <input type="text" class="form-control" id="depthOfTrench" name="depthOfTrench" required
+          [(ngModel)]="model.depthOfTrench" #depthOfTrench="ngModel" />
+        <div [hidden]="depthOfTrench.valid || depthOfTrench.pristine" class="alert alert-danger">
+          Depth Of Trench is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task">Slope (1/1 to 1/4)</label>
+        <input type="text" class="form-control" id="slope" name="slope" required [(ngModel)]="model.slope"
+          #slope="ngModel" />
+        <div [hidden]="slope.valid || slope.pristine" class="alert alert-danger">
+          Slope is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task">Thickness Of Cable Way (cm)</label>
+        <input type="text" class="form-control" id="thicknessOfCableWay" name="thicknessOfCableWay" required
+          [(ngModel)]="model.thicknessOfCableWay" #thicknessOfCableWay="ngModel" />
+        <div [hidden]="thicknessOfCableWay.valid || thicknessOfCableWay.pristine" class="alert alert-danger">
+          Thickness Of Cable Way is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="densityAntiPersonalMine">Type Of Timber</label>
+
+        <div [hidden]="typeOfTimber.valid || typeOfTimber.pristine" class="alert alert-danger">
+          Type Of is Timber is Required
+        </div>
+        <select class="form-control" id="typeOfTimber" required [(ngModel)]="model.typeOfTimber" name="typeOfTimber"
+          #typeOfTimber="ngModel">
+          <option value="1" selected>Timber Grade-1</option>
+          <option value="2">Timber Grade-2</option>
+          <option value="3">Timber Grade-3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="densityAntiPersonalMine">Selection Of Log</label>
+
+        <div [hidden]="selectionOfLog.valid || selectionOfLog.pristine" class="alert alert-danger">
+          Selection Of Log is Required
+        </div>
+        <select class="form-control" id="selectionOfLog" required [(ngModel)]="model.selectionOfLog"
+          name="selectionOfLog" #selectionOfLog="ngModel">
+          <option value="1" selected>Round Timber</option>
+          <option value="2">Square Timber</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="task">Packing(in cm)</label>
+        <input type="text" class="form-control" id="packing" name="packing" required [(ngModel)]="model.packing"
+          #packing="ngModel" />
+        <div [hidden]="packing.valid || packing.pristine" class="alert alert-danger">
+          Packing is required
+        </div>
+      </div>
+
+      <button type="button" (click)="calculate()" class="btn btn-success" [disabled]="!burriedanchorageForm.form.valid">
+        Calculate
+      </button>
+    </form>
+  </div>
+</div>
